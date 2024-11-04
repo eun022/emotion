@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bit Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="module" src="{{ url_for('static', filename='web_dotpad.js') }}"></script>
+</head>
+
+<body>
+
+    <header>
+
+        
+        <h1>Emotion</h1>
+
+
+        <div class="header-right">
+
+
+            <!--
+        <button class="h_button" width="100%" height="100%" id="s3">English play</button>
+        <button class="h_button" width="100%" height="100%" id="s2">Korea play</button>
+
+        <button class="h_button" width="100%" height="100%" id="s3">test</button> 
+
+        <button class="h_button" width="100%" height="100%" id="s5">test</button>
+
+    -->
+
+            <button class="h_button" width="100%" height="100%" id="s4"> Send data </button>
+
+
+        </div>
+
+
+        <div class="header-right">
+            <!-- 오른쪽으로 정렬되길 원하는 요소들 -->
+            <div class="h_button" id="connectbutton">Connect</div>
+
+            <div class="h_button" id="disconnectbutton">Disconnect</div>
+        </div>
+
+    </header>
+
+</body>
+
+
+ <!--도트로 그래픽 표현 예정-->
+ <div class="container">
+    <!-- 도트 그래픽 캔버스 -->
+    <canvas id="dotCanvas" width="600" height="400"></canvas>
+
+    <!-- 버튼 그룹 -->
+    <div class="button-group">
+        <button class="h_button" id="A_l">A_l</button>
+        <button class="h_button" id="f1">F1</button>
+        <button class="h_button" id="f2">F2</button>
+        <button class="h_button" id="f3">F3</button>
+        <button class="h_button" id="f4">F4</button>
+        <button class="h_button" id="A_r">A_r</button>
+    </div>
+</div>
+
+   
+   
+
+</div>
+   
+
+   
+
+
+    
+    
+
+    
+
+
+    
+</html>
