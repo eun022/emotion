@@ -563,107 +563,79 @@ class DotPad {
 
 
 
+    if (intvalue[6] == 18) {
+      //화살표 버튼, 장면 전환
+      if (intvalue[9] == 4 && intvalue[12] == 176) {
 
-
-  // 수정해야하는 곳
-// 튜토리얼 
-    if (this.tutorial == 1){
-      if (intvalue[6] == 18) {
-        //direction buttons. Left and right. saving "which button" was pushed.
-        //왼쪽 화살표로 추정
-        if (intvalue[9] == 4 && intvalue[12] == 176) {
-          
-
-
-        }
-        //오른쪽 화살표로 수정, 나중에 닷패드 코딩할 떄 확인할것
-        else if (intvalue[9] == 2 && intvalue[12] == 182) {
-          
+        this.playing = 1;
+        this.tutorial_ind -= 1;
+        if (this.tutorial_ind == -1 && this.tutorial_state == "F1") {
+          this.tutorial_ind = 5;
+        } else if (this.tutorial_ind == -1 && this.tutorial_state == "F2") {
+          this.tutorial_ind = 1;
         }
 
+        console.log("왼쪽 화살표 누름", this.tutorial_ind);
 
-        //evoke functions when buttons down to up (of left/right)
-        //버튼 조작 후 딜레이 넣어준거라 수정 안 해도 될듯? 이거 없으면 닷패드가 빨리 조작 돼서 그래픽핀 부분 오류남
-        setTimeout(() => {
-          this.playing = 0;
-        }, 2500);
-        console.log("2500 이후 playing: " + this.playing);
       }
-  
-      //corresponding for button 1-4
-      else if (intvalue[6] == 50) {
-        switch (intvalue[8]) {
-          case 128:
-            
-            break;
-          case 64:
-            
-            break;
-          case 32:
-           
-            break;
-          case 16:
-            
-            break;
+
+      else if (intvalue[9] == 2 && intvalue[12] == 182) {
+        this.tutorial_ind += 1;
+        this.playing = 1;
+        if ((this.tutorial_ind == 6 && this.tutorial_state == "F1") || (this.tutorial_ind == 2 && this.tutorial_state == "F2")) {
+          this.tutorial_ind = 0;
         }
-        
+
+        console.log("오른쪽 화살표 누름", this.tutorial_ind);
+      }
+
+
+      //evoke functions when buttons down to up (of left/right)
+      setTimeout(() => {
+        this.playing = 0;
+      }, 2500);
+      console.log("2500 이후 playing: " + this.playing);
+    }
+
+    //corresponding for button 1-4
+
+    else if (intvalue[6] == 50) {
+      switch (intvalue[8]) {
+        case 128:
+          //btn 1: sound output
+         // this.send_sound = 1;
+          this.tutorial_state = "F1";
+          break;
+        case 64:
+          //btn 2
+          
+          this.tutorial_state = "F2";
+
+          break;
+        case 32:
+          //btn 3
+          this.send_sound = 1;
+
+          break;
+        case 16:
+          //btn 4 리프래쉬
+          //var audio = new Audio('/static/button_tts/초기화.wav');
+          // load
+          audio.load();
+
+          // 볼륨 설정
+          audio.volume = 1;
+
+          // 실행
+          audio.play();
+
+          this.resend = 1;
+          break;
       }
 
     }
 
-// 본 기능 설계
-    else if (this.tutorial == 0){
-      if (intvalue[6] == 18) {
-        //direction buttons. Left and right. saving "which button" was pushed.
-        if (intvalue[9] == 4 && intvalue[12] == 176) {
-   
-        }
-
-        else if (intvalue[9] == 2 && intvalue[12] == 182) {
-          
-        }
-
-
-        //evoke functions when buttons down to up (of left/right)
-        //버튼 조작 후 딜레이 넣어준거라 수정 안 해도 될듯? 이거 없으면 닷패드가 빨리 조작 돼서 그래픽핀 부분 오류남
-        
-        setTimeout(() => {
-          this.playing = 0;
-        }, 2500);
-        console.log("2500 이후 playing: " + this.playing);
-      }
-  
-      //corresponding for button 1-4
-  
-      else if (intvalue[6] == 50) {
-        switch (intvalue[8]) {
-          case 128:
-       
-  
-            break;
-          case 64:
-            //btn 2: quadrant conversion (for map and photo)
-          
-
-            break;
-          case 32:
-
-            break;
-          case 16:
-         
-
-            break;
-        }
-        
-      }
-    }
-
-    
   }
-
-
-
-
 
 
 

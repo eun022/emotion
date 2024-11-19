@@ -60,6 +60,13 @@ body {
     border: 2px solid black;
 }
 
+.container #dotCanvas2 {
+    position: relative;
+    top: 0px; 
+    border: 2px solid black;
+}
+
+
 nav{
     display: flex;
     justify-content: flex-end;
@@ -87,6 +94,26 @@ nav{
     
 }
 
+.dot_button {
+    width: 200px;
+    height: 100px;
+    border:none;
+    color: #ffffff;
+    background: none;
+    font-weight: bold;
+    
+}
+
+.a_button {
+    width: 100px;
+    height: 100px;
+    border:none;
+    color: #ffffff;
+    background: none;
+    font-weight: bold;
+    
+}
+
 .text {
     font-weight: bold;
     font-size: 15px;
@@ -97,4 +124,3 @@ label {
     display: inline-block; /* 라벨을 인라인 블록으로 설정하여 좌우 패딩 적용 */
     padding: 0 50px; /* 좌우 패딩 설정 (10px로 예시) */
 }
-
