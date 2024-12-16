@@ -561,7 +561,7 @@ class DotPad {
 
 
 
-
+// 버튼 기능 모두 은채 제작
 
     if (intvalue[6] == 18) {
       //화살표 버튼, 장면 전환
@@ -572,7 +572,7 @@ class DotPad {
         if (this.tutorial_ind == -1 && this.tutorial_state == "F1") {
           this.tutorial_ind = 5;
         } else if (this.tutorial_ind == -1 && this.tutorial_state == "F2") {
-          this.tutorial_ind = 1;
+          this.tutorial_ind = 4;
         }
 
         console.log("왼쪽 화살표 누름", this.tutorial_ind);
@@ -582,7 +582,7 @@ class DotPad {
       else if (intvalue[9] == 2 && intvalue[12] == 182) {
         this.tutorial_ind += 1;
         this.playing = 1;
-        if ((this.tutorial_ind == 6 && this.tutorial_state == "F1") || (this.tutorial_ind == 2 && this.tutorial_state == "F2")) {
+        if ((this.tutorial_ind == 6 && this.tutorial_state == "F1") || (this.tutorial_ind == 5 && this.tutorial_state == "F2")) {
           this.tutorial_ind = 0;
         }
 
@@ -614,20 +614,20 @@ class DotPad {
           break;
         case 32:
           //btn 3
-          this.send_sound = 1;
+          this.send_data = 1;
 
           break;
         case 16:
           //btn 4 리프래쉬
           //var audio = new Audio('/static/button_tts/초기화.wav');
           // load
-          audio.load();
+          //audio.load();
 
           // 볼륨 설정
-          audio.volume = 1;
+          //audio.volume = 1;
 
           // 실행
-          audio.play();
+          //audio.play();
 
           this.resend = 1;
           break;
